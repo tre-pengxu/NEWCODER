@@ -1,4 +1,4 @@
-﻿# 华为2016研发工程师编程题
+# 华为2016研发工程师编程题
 
 [编程题] 删数
 ========
@@ -26,40 +26,11 @@
 
 >6
 
-``` C++
-#include <iostream>
-using namespace std;
-int main()
-{
-    int n, p[1000];
-  
-    while (cin >> n)
-    {
-        for (int i = 0; i < n; i++)
-            p[i] = 1;
- 
-        int index = 0, count = 0;
-        for (int i = 0; count < n - 1 ; i++)
-        {
-            if (p[i % n] == 0)
-                continue;
-            if ((index + 1) % 3 == 0)
-            {   
-                p[i % n] = 0;
-                count += 1;
-            }
-            index++;
-        }
-         
-        for (int i = 0; i < n; i++)
-        { 
-            if (p[i])
-            {cout << i << endl; break;}
-        }
-    }
-    return 0;
-}
-```
+
+[源代码:1.cpp](1.cpp) 
+===================
+
+
 
 [编程题]字符集合
 =========
@@ -86,36 +57,8 @@ int main()
 
 >abcqwer
 
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-int main()
-{
-    string p;
-    while (cin >> p)
-    {
-        int set[128] = {0};
-        for (string::iterator i = p.begin(); i != p.end(); i++)
-        {
-            int n = int(*i);
-            if (!set[n])
-                set[n] = 1;
-            else
-                *i = '*'; //重复字符替换为'*'
-        }
-        for (string::iterator i = p.begin(); i != p.end(); i++)
-        {
-            if (*i == '*')
-                continue;
-            else
-                cout << *i;
-        }
-        cout << endl;
-    }
-    return 0;
-}
-```
+[源代码:2.cpp](2.cpp)
+====================
 
 [编程题]数独
 =======
@@ -158,80 +101,9 @@ int main()
 8 7 6 3 4 2 1 9 5  
 1 5 4 6 7 9 2 8 3  
 
-```cpp
-#include <iostream>
-using namespace std;
 
-int num[9][9]; //放置九宫格数据
-int row[9][10]; //若row[i][k]值为1，表示i行已经有数字k存在(i的取值范围[0~8],k的取值范围[1~9])
-int column[9][10]; //若column[j][k]值为1，表示j列已经有数字k存在
-int block[9][10]; //若block[b][k]值为1，表示b块已经有数字k存在
-
-void init()
-{
-	for (int i = 0; i < 9; i++)
-	{
-		for (int j = 0; j < 9; j++)
-		{
-			cin >> num[i][j];
-			int value = num[i][j];
-			int b = (i / 3) * 3 + (j / 3);
-			if (value != 0)
-				row[i][value] = column[j][value] = block[b][value] = 1;
-			else
-				row[i][value] = column[j][value] = block[b][value] = 0;
-		}
-	}
-}
-
-void output()
-{
-	for (int i = 0; i < 9; i++)
-	{
-		for (int j = 0; j < 9; j++)
-		{
-			cout << num[i][j] << ' ';
-		}
-		cout << endl;
-	}
-}
-
-void search(int n)
-{
-	if (n == 81) //边界条件
-	{
-		output();
-		return;
-	}
-	int r = n / 9; //行号row
-	int c = n % 9; //列号column
-	int b = (r / 3) * 3 + (c / 3); //块号block
-
-	if (num[r][c] != 0)
-		search(n + 1);
-	else{
-		for (int k = 1; k <= 9; k++)
-		{
-			if (row[r][k] || column[c][k] || block[b][k]) //检查行、列和宫内是否冲突
-				continue;
-			else{ //给num[r][c]赋值k
-				num[r][c] = k;
-				row[r][k] = column[c][k] = block[b][k] = 1;
-				search(n + 1); //回溯
-				num[r][c] = 0;
-				row[r][k] = column[c][k] = block[b][k] = 0;
-			}
-		}
-	}
-}
-
-int main()
-{	
-	init();	
-	search(0);
-    return 0;
-}
-```
+[源代码:3.cpp](3.cpp)
+====================
 
 
 
