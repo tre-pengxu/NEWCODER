@@ -1,32 +1,28 @@
-#include<cstdio>
-#include<queue>
+#include <iostream>
+#include <queue>
 using namespace std;
- 
+
 int main()
 {
     int n;
-    while(scanf("%d",&n)!=EOF)
+    while (cin >> n)
     {
-        queue<int>Q;
- 
-        for(int i=0;i<n;i++)
-        {
+        queue<int> Q;
+        for(int i = 0; i < n; i++)
             Q.push(i);
-        }
-        int cnt=0,tmp;
-        while(!Q.empty())
+        
+        int num = 0, tmp = 0;
+        while(Q.size() != 1)
         {
-            ++cnt;
-            tmp=Q.front();
+            ++num;
+            tmp = Q.front();
             Q.pop();
-            if(cnt==3){cnt=0;}
+            if(num % 3 == 0)
+                continue;
             else
-            {
-                if(Q.empty()) break;
                 Q.push(tmp);
-            }
         }
-        printf("%d\n",tmp);
+        cout << Q.front() << endl;
     }
     return 0;
 }
