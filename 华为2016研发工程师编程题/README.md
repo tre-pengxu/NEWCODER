@@ -1,4 +1,5 @@
 # 华为2016研发工程师编程题
+题目链接:[http://www.nowcoder.com/test/710802/summary](http://www.nowcoder.com/test/710802/summary)
 
 ## 目录：
 1. [删数](#第一题)

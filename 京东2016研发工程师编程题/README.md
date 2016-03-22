@@ -1,5 +1,5 @@
 # 京东2016研发工程师编程题
-[题目链接:http://www.nowcoder.com/test/734817/summary](http://www.nowcoder.com/test/734817/summary)
+题目链接:[http://www.nowcoder.com/test/734817/summary](http://www.nowcoder.com/test/734817/summary)
 
 ## 目录：
 1. [年终奖](#第一题)
